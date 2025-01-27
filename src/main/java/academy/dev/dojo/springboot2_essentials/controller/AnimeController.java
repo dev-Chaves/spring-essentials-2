@@ -1,32 +1,41 @@
 package academy.dev.dojo.springboot2_essentials.controller;
 
 import academy.dev.dojo.springboot2_essentials.domain.Anime;
+import academy.dev.dojo.springboot2_essentials.service.AnimeService;
 import academy.dev.dojo.springboot2_essentials.util.DataUtil;
+import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.List;
-@Slf4j
+
 @RestController
 @RequestMapping("animes")
+@Log4j2
+
 public class AnimeController {
 
-    private DataUtil dateUtil;
+    private final DataUtil dateUtil;
 
-    public AnimeController(DateUtil dateUtil) {
+    private final AnimeService animeService;
+
+    public AnimeController(DataUtil dateUtil, AnimeService animeService) {
         this.dateUtil = dateUtil;
+        this.animeService = animeService;
     }
+
     // fazer injeção de dependencia
 
-    @GetMapping(path = "list")
-
+    @GetMapping()
     public List<Anime> list(){
 
+//        log.info("Requisição recebida em: {}", dateUtil.formatLocalDataTimeToDatabaseStyle(LocalDateTime.now()));
 
-
-        return List.of(new Anime("Berserk"), new Anime("Monster")
-        );
+        return animeService.listAll();
     }
 }

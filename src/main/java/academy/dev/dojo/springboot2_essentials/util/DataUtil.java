@@ -11,6 +11,6 @@ import java.time.format.DateTimeFormatter;
 @Component
 public class DataUtil {
    public String formatLocalDataTimeToDatabaseStyle(LocalDateTime localDateTime){
-       return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime);
+       return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(localDateTime);
    }
 }
