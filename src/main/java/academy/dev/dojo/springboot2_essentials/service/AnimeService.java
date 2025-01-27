@@ -8,6 +8,6 @@ import java.util.List;
 @Service
 public class AnimeService {
     public List<Anime> listAll(){
-        return List.of(new Anime("Berserk", 1), new Anime("Monster", 2));
+        return List.of(new Anime("Berserk", 1L), new Anime("Monster", 2L));
     }
 }
