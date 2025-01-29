@@ -21,8 +21,7 @@ public class AnimeService {
 
     public Anime findById(long id) {
         return animes.stream()
-                .filter(anime -> anime.getId() == id)
+                .filter(anime -> (long) anime.getId() == id)
                 .findFirst().orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST,"Anime not Found"));
         };
     }
-}
