@@ -39,9 +39,10 @@ public class AnimeController {
         return new ResponseEntity<>(animeService.listAll(), HttpStatus.OK);
     }
 
+    // Invés de Of passar Ok;
     @GetMapping(path = "/{id}")
-    public ResponseEntity<List<Anime>> findById(@PathVariable long id){
-        return new ResponseEntity<>(animeService.listAll().get(id), HttpStatus.OK);
+    public ResponseEntity<Anime> findById(@PathVariable long id){
+       return ResponseEntity.ok(animeService.findById(id));
     }
 
    // Fazer Get by Id
