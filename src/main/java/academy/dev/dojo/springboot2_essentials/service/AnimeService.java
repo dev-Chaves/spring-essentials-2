@@ -45,4 +45,8 @@ public class AnimeService {
     }
 
 
+    public void editByid(Anime anime) {
+        deleteById(anime.getId());
+        animes.add(anime);
+    }
 }
