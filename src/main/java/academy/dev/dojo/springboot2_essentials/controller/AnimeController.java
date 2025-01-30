@@ -57,4 +57,10 @@ public class AnimeController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PutMapping
+    public ResponseEntity<Void> edit(@RequestBody Anime anime){
+        animeService.editByid(anime);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
