@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.swing.plaf.PanelUI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -38,4 +39,10 @@ public class AnimeService {
         return anime;
     }
 
+    public Anime deleteById(long id){
+        animes.remove(findById(id));
+        return null;
     }
+
+
+}
